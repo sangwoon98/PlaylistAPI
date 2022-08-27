@@ -4,7 +4,7 @@ POST http://localhost:3000/api/playlist/create HTTP/1.1
 content-type: application/json
 
 {
-    "title": "빌보두 플레이리스트",
+    "title": "빌보두 플레이리스트",asd
     "creator": "Sangwoon",
     "platform": "google",
     "image": "/image/0",
