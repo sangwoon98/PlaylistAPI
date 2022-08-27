@@ -128,12 +128,12 @@ router.post('/api/playlist/list/:clientId', async function(req, res) {
 
   await dbAll(`SELECT key, title, creator, platform, image FROM playlist WHERE subscribe LIKE '%${clientId}%'`).then((resolve) => {
     if(resolve.err) isStatus = errorStatus;
-    else if(resolve.result) {
+    else if(resolve.result != []) {
       playlistArray = [];
       resolve.result.forEach((row) => {
         playlistArray.push(row);
       });
-    } else {
+    } else if (resolve.result == []) {
       playlistArray = null;
     }
   });
@@ -143,7 +143,12 @@ router.post('/api/playlist/list/:clientId', async function(req, res) {
   playlist = [];
   if(playlistArray) {
     for(var num = 0; num < playlistArray.length; num++) {
-      playlist.push([playlistArray[num]['key'], playlistArray[num]['title'], playlistArray[num]['creator'], playlistArray[num]['platform'], playlistArray[num]['image']]);
+      playlist.push({
+        'key': playlistArray[num]['key'], 
+        'title': playlistArray[num]['title'],
+        'creator': playlistArray[num]['creator'],
+        'platform': playlistArray[num]['platform'], 
+        'image': playlistArray[num]['image']});
     }
   }
 
@@ -229,7 +234,7 @@ router.post('/api/playlist/add/:key', async function(req, res) {
   isStatus = null;
   key = req.params.key;
   clientId = req.body.clientId;
-
+  
   await dbRun(`UPDATE playlist SET subscribe = subscribe || '|:|${clientId}' WHERE key = '${key}'`).then((resolve) => {
     if(resolve.err) isStatus = errorStatus;
     else isStatus = normalStatus();
@@ -247,8 +252,7 @@ router.post('/api/playlist/remove/:key', async function(req, res) {
   await dbGet(`SELECT * FROM playlist WHERE key = '${key}' AND subscribe LIKE '%|:|${clientId}%'`).then((resolve) => {
     if(resolve.err) isStatus = errorStatus;
     else if(resolve.result) {
-      if(resolve.result) subscribe = resolve.result['subscribe'];
-      else isStatus = wrongStatus;
+      subscribe = resolve.result['subscribe'];
     } else isStatus = wrongStatus;
   });
 

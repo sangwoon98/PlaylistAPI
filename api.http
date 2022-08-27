@@ -17,7 +17,7 @@ content-type: application/json
 POST http://localhost:3000/api/playlist/list/7e930566ecaa306c71b5 HTTP/1.1
 
 ### 플레이리스트 상세 조회
-POST http://localhost:3000/api/playlist/detail/7e930566ecaa306c71b5266 HTTP/1.1
+POST http://localhost:3000/api/playlist/detail/7e930566ecaa306c71b55yn HTTP/1.1
 
 ### 플레이리스트 수정
 POST http://localhost:3000/api/playlist/edit/7e930566ecaa306c71b5266 HTTP/1.1
@@ -32,7 +32,7 @@ content-type: application/json
 }
 
 ### 플레이리스트 삭제
-POST http://localhost:3000/api/playlist/delete/7e930566ecaa306c71b5266 HTTP/1.1
+POST http://localhost:3000/api/playlist/delete/7e930566ecaa306c71b567w HTTP/1.1
 content-type: application/json
 
 {
@@ -48,9 +48,9 @@ Content-Type: application/json
 }
 
 ### 공유된 플레이리스트 삭제
-POST http://localhost:3000/api/playlist/remove/7e930566ecaa306c71b5266 HTTP/1.1
+POST http://localhost:3000/api/playlist/remove/7e930566ecaa306c71b5YcT HTTP/1.1
 Content-Type: application/json
 
 {
-    "clientId": "newClientId"
+    "clientId": "7e930566ecaa306c71b5"
 }
