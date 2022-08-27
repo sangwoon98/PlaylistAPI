@@ -1,0 +1,63 @@
+<style>
+    .button {
+    	box-shadow:inset 0px 1px 0px 0px #ffffff;
+    	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    	background-color:#ffffff;
+    	border-radius:30px;
+    	border:4px solid #dcdcdc;
+    	display:inline-block;
+    	cursor:pointer;
+    	color:#666666;
+    	font-family:Arial;
+    	font-size:28px;
+    	font-weight:bold;
+    	padding:40px 100px;
+    	text-decoration:none;
+    	text-shadow:0px 1px 0px #ffffff;
+    }
+    .button:hover {
+    	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    	background-color:#f6f6f6;
+    }
+    .button:active {
+    	position:relative;
+    	top:1px;
+    }
+</style>
+
+<html>
+    <div style=" text-align: center;">
+        <form id="form" method="POST" action="/api/playlist/create">
+            <input type="hidden" value="빌보두 플레이리스트" name="title" />
+            <input type="hidden" value="Sangwoon" name="creator"/>
+            <input type="hidden" value="google" name="platform" />
+            <input type="hidden" value="/image/0" name="image" />
+            <input type="hidden" value="팬서비스" name="songlist" />
+            <input type="hidden" value="마지막재회" name="songlist" />
+            <input type="hidden" value="봄여름가을겨울" name="songlist" />
+            <input type="hidden" value="TRUE" name="public" />
+            <input type="hidden" value="7e930566ecaa306c71b5" name="clientId"/>
+            <button type="submit" class="button">생성</button>
+        </form>
+        <form id="form" method="POST" action="/api/playlist/list/7e930566ecaa306c71b5">
+            <button type="submit" class="button">목록조회</button>
+        </form>
+        <form id="form" method="POST" action="/api/playlist/detail/7e930566ecaa306c71b5Fc0">
+            <button type="submit" class="button">상세조회</button>
+        </form>
+        <form id="form" method="POST" action="/api/playlist/edit/7e930566ecaa306c71b5Fc0">
+            <input type="hidden" value="수정된 플레이리스트" name="title" />
+            <input type="hidden" value="/image/1" name="image" />
+            <input type="hidden" value="Attention" name="songlist" />
+            <input type="hidden" value="마지막재회" name="songlist" />
+            <input type="hidden" value="RUN2U" name="songlist" />
+            <input type="hidden" value="FALSE" name="public" />
+            <input type="hidden" value="7e930566ecaa306c71b5" name="clientId"/>
+            <button type="submit" class="button">수정</button>
+        </form>
+        <form id="form" method="POST" action="/api/playlist/delete/7e930566ecaa306c71b5Fc0">
+            <input type="hidden" value="7e930566ecaa306c71b5" name="clientId"/>
+            <button type="submit" class="button">삭제</button>
+        </form>
+    </div>
+</html>
