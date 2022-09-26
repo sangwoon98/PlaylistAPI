@@ -14,10 +14,10 @@ content-type: application/json
 }
 
 ### 플레이리스트 목록 조회 
-POST http://localhost:3000/api/playlist/list/7e930566ecaa306c71b5 HTTP/1.1
+GET http://localhost:3000/api/playlist/list/7e930566ecaa306c71b5 HTTP/1.1
 
 ### 플레이리스트 상세 조회
-POST http://localhost:3000/api/playlist/detail/7e930566ecaa306c71b55yn HTTP/1.1
+GET http://localhost:3000/api/playlist/detail/7e930566ecaa306c71b55yn HTTP/1.1
 
 ### 플레이리스트 수정
 POST http://localhost:3000/api/playlist/edit/7e930566ecaa306c71b5266 HTTP/1.1

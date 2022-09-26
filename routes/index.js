@@ -122,7 +122,7 @@ router.post('/api/playlist/create', async function(req, res) {
 });
 
 // 플레이리스트 목록 조회 API
-router.post('/api/playlist/list/:clientId', async function(req, res) {
+router.get('/api/playlist/list/:clientId', async function(req, res) {
   isStatus = null;
   clientId = req.params.clientId;
 
@@ -156,7 +156,7 @@ router.post('/api/playlist/list/:clientId', async function(req, res) {
 });
 
 // 플레이리스트 상세 조회 API
-router.post('/api/playlist/detail/:key', async function(req, res) {
+router.get('/api/playlist/detail/:key', async function(req, res) {
   isStatus = null;
   key = req.params.key;
 
